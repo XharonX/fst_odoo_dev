@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <record id="tree_book_store" model="ir.ui.view">
+      <field name="name">Book Store</field>
+      <field name="model">book.store</field>
+      <field name="arch" type="xml">
+        <tree string="Book Store List">
+          <field name="name"/>
+          <field name="author"/>
+          <field name="published_date"/>
+          <field name="pages"/>
+          <field name="price"/>
+        </tree>
+      </field>
+
+    </record>
+    <record id="action_book_store" model="ir.actions.act_window">
+      <field name="name">Book Store</field>
+      <field name="res_model">book.store</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p> Create a new book.</p>
+      </field>
+    </record>
+    <menuitem id="book_store" name="Book Store" action="action_book_store" />
+  </data>
+</odoo>

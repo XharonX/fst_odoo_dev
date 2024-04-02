@@ -1,10 +1,43 @@
 <odoo>
   <data>
+    <menuitem id="bookstore" name="Bookstore" />
+    <record id="kanban_book_store" model="ir.ui.view">
+      <field name="name">bookstore.book.kanban</field>
+      <field name="model">bookstore.book</field>
+      <field name="arch" type="xml">
+        <kanban class="o_kanban_mobile">
+          <field name="image"/>
+          <field name="name"/>
+          <field name="author"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div t-attf-class="oe_kanban_global_click">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="o_kanban_image">
+                      <img t-att-src="kanban_image('bookstore.book','image','record.id.raw_value')"/>
+                    </div>
+                  </div>
+                  <div class="col-6 text-end">
+                    <strong class="oe_kanban_details">
+                      <field name="name"/>
+                      <br/>
+                      <field name="author"/>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
     <record id="tree_book_store" model="ir.ui.view">
       <field name="name">Book Store</field>
-      <field name="model">book.store</field>
+      <field name="model">bookstore.book</field>
       <field name="arch" type="xml">
         <tree string="Book Store List">
+          <field name="image"/>
           <field name="name"/>
           <field name="author"/>
           <field name="published_date"/>
@@ -12,16 +45,24 @@
           <field name="price"/>
         </tree>
       </field>
-
     </record>
-    <record id="action_book_store" model="ir.actions.act_window">
+    <record id="action_bookstore_book" model="ir.actions.act_window">
       <field name="name">Book Store</field>
-      <field name="res_model">book.store</field>
-      <field name="view_mode">tree,form</field>
+      <field name="res_model">bookstore.book</field>
+      <field name="view_mode">kanban,tree,form</field>
       <field name="help" type="html">
         <p> Create a new book.</p>
       </field>
     </record>
-    <menuitem id="book_store" name="Book Store" action="action_book_store" />
+    <record id="action_bookstore_catalog" model="ir.actions.act_window">
+      <field name="name">Catalog</field>
+      <field name="res_model">bookstore.catalog</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p> Catalog </p>
+      </field>
+    </record>
+    <menuitem id="bookstore_book" name="book list" action="action_bookstore_book" parent="bookstore" />
+    <menuitem id="bookstore_catalog" name="book catalog" action="action_bookstore_catalog" parent="bookstore"/>
   </data>
 </odoo>

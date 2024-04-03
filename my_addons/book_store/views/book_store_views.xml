@@ -40,7 +40,7 @@
           <field name="image"/>
           <field name="name"/>
           <field name="author"/>
-          <field name="published_date"/>
+          <field name="catalog_id"/>
           <field name="pages"/>
           <field name="price"/>
         </tree>
@@ -62,7 +62,16 @@
         <p> Catalog </p>
       </field>
     </record>
+    <record id="action_bookstore_tag" model="ir.actions.act_window">
+      <field name="name">Catalog</field>
+      <field name="res_model">bookstore.tag</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p> Catalog </p>
+      </field>
+    </record>
     <menuitem id="bookstore_book" name="book list" action="action_bookstore_book" parent="bookstore" />
+    <menuitem id="bookstore_tag" name="book tag" action="action_bookstore_book" parent="bookstore" />
     <menuitem id="bookstore_catalog" name="book catalog" action="action_bookstore_catalog" parent="bookstore"/>
   </data>
 </odoo>

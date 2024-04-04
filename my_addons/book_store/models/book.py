@@ -10,13 +10,18 @@ class Book(models.Model):
     name = fields.Char(string="name", required=True)
     catalog_id = fields.Many2one(comodel_name='bookstore.catalog', string='category', required=True)
     tags_id = fields.Many2many(comodel_name='bookstore.tag', string='tag', required=True)
-    author = fields.Char(string='author', required=True)
+    author_id = fields.Many2one(comodel_name='bookstore.author', string='author', inverse_name='books_ids', onDelete='set null')
+    author = fields.Char(string='author')
     price = fields.Float(string='price', required=True)
     pages = fields.Integer(string='pages')
     count = fields.Integer(string='qty')
+    in_stock = fields.Boolean(string='In stock', default=True)
     published_date = fields.Date(string='publish date')
     description = fields.Text(string="description")
-
+    language = fields.Selection(selection=[
+        ('my', 'myanmar'),
+        ('en', 'english'),
+    ])
 
 class Catalog(models.Model):
     _name = "bookstore.catalog"

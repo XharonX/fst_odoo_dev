@@ -1,8 +1,8 @@
 from odoo.odoo import models, fields
 import re
 
-class Validator:
 
+class Validator:
     @staticmethod
     def email(email):
         return re.match(r'[^@]+@[^@]+\.[^@]+', email) is not None

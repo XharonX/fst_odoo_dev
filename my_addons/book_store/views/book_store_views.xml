@@ -1,37 +1,6 @@
 <odoo>
   <data>
     <menuitem id="bookstore" name="Bookstore" />
-    <record id="kanban_book_store" model="ir.ui.view">
-      <field name="name">bookstore.book.kanban</field>
-      <field name="model">bookstore.book</field>
-      <field name="arch" type="xml">
-        <kanban class="o_kanban_mobile">
-          <field name="image"/>
-          <field name="name"/>
-          <field name="author_id"/>
-          <templates>
-            <t t-name="kanban-box">
-              <div t-attf-class="oe_kanban_global_click">
-                <div class="row">
-                  <div class="col-6">
-                    <div class="o_kanban_image">
-                      <img t-att-src="kanban_image('bookstore.book','image','record.id.raw_value')"/>
-                    </div>
-                  </div>
-                  <div class="col-6 text-end">
-                    <strong class="oe_kanban_details">
-                      <field name="name"/>
-                      <br/>
-                      <field name="author_id"/>
-                    </strong>
-                  </div>
-                </div>
-              </div>
-            </t>
-          </templates>
-        </kanban>
-      </field>
-    </record>
     <record id="action_bookstore_book" model="ir.actions.act_window">
       <field name="name">Book Store</field>
       <field name="res_model">bookstore.book</field>

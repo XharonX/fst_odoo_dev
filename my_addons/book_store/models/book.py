@@ -21,7 +21,9 @@ class Book(models.Model):
     language = fields.Selection(selection=[
         ('my', 'myanmar'),
         ('en', 'english'),
+        ('sh', 'shan'),
     ])
+
 
 class Catalog(models.Model):
     _name = "bookstore.catalog"

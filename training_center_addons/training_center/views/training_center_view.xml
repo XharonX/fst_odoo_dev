@@ -1,0 +1,11 @@
+<odoo>
+  <data>
+    <record id="training_center" model="ir.actions.act_window">
+      <field name="name">Training Center Course</field>
+      <field name="res_model">training_center.course</field>
+      <field name="view_mode">tree,kanban,form</field>
+    </record>
+    <menuitem id="training_center" action=""/>
+    <menuitem id="training_center"/>
+  </data>
+</odoo>
